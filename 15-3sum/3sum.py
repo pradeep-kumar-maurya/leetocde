@@ -1,27 +1,22 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
-        """
-        The idea is to fix one number and then use two pointers approach on the right side of the sorted array.
-        T.C = O(NlogN + N^2) ~= O(N^2)
-        """
-        nums.sort()  # Array needs to be sorted. T.C = O(NlogN)
-        freq_set = set()  # this will keep track of the nos that are already considered as the first element
-        final_set = set()  # this will maintain only unique triplets
+        freq_dict = {}  # maintains numbers from nums array and their final index
+        final_set = set()
 
-        for i in range(0, len(nums)-2, 1):  # O(N)
-            if nums[i] not in freq_set:
-                freq_set.add(nums[i])
-            else:  # nums[i] already in freq_set then skip nums[i]
-                continue
-            sum = 0 - nums[i]
-            j, k = i+1, len(nums)-1  # these are the two pointers
-            while j < k:  # O(N)
-                if nums[j] + nums[k] == sum:
-                    final_set.add(tuple([nums[i], nums[j], nums[k]]))
-                    j += 1
-                    k -= 1
-                elif nums[j] + nums[k] > sum:
-                    k -= 1
-                else:
-                    j += 1
+        for i in range(len(nums)):
+            # we only maintain the last index of repeating number as it's enough to tell if a triplet can be formed
+            freq_dict[nums[i]] = i
+
+        for i in range(0, len(nums)-2, 1):
+            for j in range(i+1, len(nums)-1, 1):
+                k = 0 - (nums[i] + nums[j])  # 'k' will be searched in the freq_dict
+                """
+                freq_dict.get(k) has to be > i and > j then only we would consider [nums[i], nums[j], k]
+                as a valid triplet
+                """
+                if freq_dict.get(k) and freq_dict.get(k) > i and freq_dict.get(k) > j:
+                    # we will sort the triplet and use it as a key to check for the repeated triplet in O(1) T.C
+                    data = sorted([nums[i], nums[j], k])
+                    final_set.add(tuple(data))
+
         return list(final_set)
