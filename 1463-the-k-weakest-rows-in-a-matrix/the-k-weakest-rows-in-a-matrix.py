@@ -1,5 +1,11 @@
 class Solution:
     def kWeakestRows(self, mat: List[List[int]], k: int) -> List[int]:
+        """
+        The idea is to just iterate over the matrix and then find the per array sum and create a frequency hashmap where
+        key will be the sum and value will the index but in a list format because multiple arrays in the matrix can have
+        same sum. Then we need to sort the freq_fict and then just iterate over the values of the sorted dict. We will
+        return once the length of final array is = k.
+        """
         final = []
         freq_dict = {}
         for index, data in enumerate(mat):
