@@ -20,3 +20,32 @@ class Solution:
             # Store suffix multiplication at index "i-1" in the 'ans' array. Note that we multiply temp with ans[i-1]
             ans[i-1] = ans[i-1] * temp
         return ans
+
+    """
+    Below approach uses a prefix and a suffix multiplication array. S.C = O(N)
+    def solve(nums):
+        The idea is to use a prefix mul and a suffix mul array. This allows us to prepare the final array in O(N) T.C.
+        But this approach uses O(N) extra space i.e. prefix and suffix mul arrays.
+        prefix_mul = [0] * len(nums)
+        prefix_mul[0] = nums[0]
+        suffix_mul = [0] * len(nums)
+        suffix_mul[-1] = nums[-1]
+        ans_array = []
+
+        for i in range(1, len(nums), 1):  # prepare prefix mul array
+            prefix_mul[i] = prefix_mul[i-1] * nums[i]
+
+        for i in range(len(nums)-2, -1, -1):  # prepare suffix mul array
+            suffix_mul[i] = suffix_mul[i+1] * nums[i]
+
+        for i in range(len(nums)):  #
+            if i == 0:
+                ans_array.append(suffix_mul[1])
+            elif i == len(nums)-1:
+                ans_array.append(prefix_mul[len(nums)-2])
+            else:
+                ans_array.append(prefix_mul[i-1] * suffix_mul[i+1])
+
+        return ans_array
+
+    """
