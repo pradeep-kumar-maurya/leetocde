@@ -1,7 +1,8 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
         """
-        The idea is, we will iterate over the array and lets say element at index [i] is different than the element at index
+        The idea is that there can be only one no. in the array that appears more than n/2 times.
+        We will iterate over the array and lets say element at index [i] is different than the element at index
         [i+1] then we can say that element at index [i+1] is reducing the frequency of the element at index [i].
         If element at index [i+1] = element at index [i], then it will increase the frequency of the element.
         This way all different elements will cancel each other frequencies and at last only 1 no. will be left with
