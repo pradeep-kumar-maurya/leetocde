@@ -4,7 +4,7 @@ class Solution:
         The idea is that the matrix rows are sorted and the first integer of each row is greater than the last integer of
         the previous row. Therefore, we will first apply binary search on the 1st column and then determine the only row we
         will be searching for the target element. Once we find the row then we will again apply binary search to find the
-        target element. Overall T.C = O(log (m+n))
+        target element. Overall T.C = O(log(m+n))
         """
         top, bottom = 0, len(matrix) - 1  # first binary search would be applied on the 1st column
         mid = 0
