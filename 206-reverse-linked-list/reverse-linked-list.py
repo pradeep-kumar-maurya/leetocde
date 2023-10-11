@@ -20,7 +20,7 @@ class Solution:
             return head
 
         temphead = head
-        tails = []  # this array will store all the nodes from the linked list
+        tails = []  # This array will store all the nodes from the linked list. This will enhance the T.C.
 
         while temphead:
             tails.append(temphead)
