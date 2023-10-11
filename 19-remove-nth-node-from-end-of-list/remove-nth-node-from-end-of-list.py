@@ -19,7 +19,7 @@ class Solution:
         nth_node_to_delete = linked_list_length - n + 1
         tempHead = head
         count = 0
-        # We will maintain a dummy node which will be the left node of the deleting node and will point to the next node of
+        # We will maintain a dummy node which will be the left node to the deleting node and will point to the next node of
         # the deleting node.
         dummy_node = head
 
