@@ -32,8 +32,8 @@ class Solution:
                 prevNode = newHead
             tempHead = nextNode  # set tempHead to nextNode
             nextNode = nextNode.next  # nextNode will always be the node right to tempHead
-            # If nextNode.next is None then tempHead will point to the last node.
-            # Therefore, newHead will be tempHead now and newNode.next = prevNode
+            # If nextNode.next is None then tempHead will point to the last node which is not included till now.
+            # Therefore, newHead will now point to tempHead and newHead.next will point to prevNode.
             if nextNode is None:
                 newHead = tempHead
                 newHead.next = prevNode
