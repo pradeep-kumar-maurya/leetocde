@@ -8,7 +8,7 @@ class Solution:
         """
         The idea is to reverse the nodes in the same way we have used to reverse the entire linked list. But this time we
         will keep a count check and reverse the nodes in a specific range. In order to do this question, first check
-        reversing the entire linked list approach.
+        reversing the entire linked list approach. T.C = O(N) and S.C = O(1)
         """
         count = 0
         tempHead = head
