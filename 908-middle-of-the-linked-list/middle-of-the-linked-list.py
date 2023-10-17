@@ -5,6 +5,7 @@
 #         self.next = next
 class Solution:
     def middleNode(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        """ The idea is to use tortoise and hare approach """
         slow = head
         fast = head
 
