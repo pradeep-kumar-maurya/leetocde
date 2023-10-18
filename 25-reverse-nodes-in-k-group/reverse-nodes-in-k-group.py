@@ -77,7 +77,7 @@ class Solution:
                     secondLastNode.next = tempHead
 
             # If tempCount > validLength that means there will be no further rotations because we will never find another
-            # kth group for rotation. Therefore, just set secondLastNode next to lastPrevNode and then break
+            # kth group for rotation. Therefore, just set secondLastNode next to lastPrevNode and then break.
             if tempCount > validLength:
                 secondLastNode.next = lastRevNode
                 break
