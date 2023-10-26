@@ -7,7 +7,7 @@ class Solution:
         freq_map = {}
         i, j = 0, 0
 
-        while j < len(s):  # AAAAABBBBCBB
+        while j < len(s):
             total_count += 1
 
             if freq_map.get(s[j]) is None:
@@ -19,7 +19,7 @@ class Solution:
                 max_element_count = freq_map[s[j]]
                 max_element = s[j]
 
-            if len(freq_map) > k + 1 or (total_count - max_element_count) > k:  # AAAAABBBBCBB
+            if len(freq_map) > k + 1 or (total_count - max_element_count) > k:
                 while (total_count - max_element_count) > k:
                     total_count -= 1
                     if total_count > max_count:
