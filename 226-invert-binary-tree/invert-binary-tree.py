@@ -9,6 +9,7 @@ class Solution:
         if root is None:
             return
 
+        # The idea is to swap the nodes at the same level
         temp_root = root.left
         root.left = root.right
         root.right = temp_root
