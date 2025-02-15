@@ -1,32 +1,24 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
-        dict1, dict2 = {}, {}
-        word = ""
-        word_array = []
-        index = 0
-        for i in range(len(pattern)):
-            if dict1.get(pattern[i]) is None:
-                dict1[pattern[i]] = [i]
-            else:
-                dict1[pattern[i]].append(i)
+        pattern_dict = {}
+        s_dict = {}
+        s_list = s.split()
 
-        for i in range(len(s)):
-            if s[i] != ' ':
-                word += s[i]
-            if s[i] == " " or i == len(s)-1:
-                word_array.append(word)
-                if dict2.get(word) is None:
-                    dict2[word] = [index]
-                else:
-                    dict2[word].append(index)
-                index += 1
-                word = ""
-
-        if len(dict1) != len(dict2):
+        if len(s_list) != len(pattern):
             return False
 
-        else:
-            for i in range(len(pattern)):
-                if dict1[pattern[i]] != dict2[word_array[i]]:
+        for i in range(len(pattern)):
+            if pattern_dict.get(pattern[i]) is None:
+                pattern_dict[pattern[i]] = s_list[i]
+            else:
+                if pattern_dict[pattern[i]] != s_list[i]:
                     return False
-            return True
+
+        for i in range(len(s_list)):
+            if s_dict.get(s_list[i]) is None:
+                s_dict[s_list[i]] = pattern[i]
+            else:
+                if s_dict[s_list[i]] != pattern[i]:
+                    return False
+
+        return True
