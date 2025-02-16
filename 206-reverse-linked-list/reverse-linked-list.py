@@ -5,7 +5,11 @@
 #         self.next = next
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-
+        '''
+        This logic takes the 1st node and then point it to None.
+        Then takes the 2nd node and point it to the 1st node and so on.
+        Linked list will be reversed.
+        '''
         if head is None:
             return None
 
@@ -22,7 +26,7 @@ class Solution:
         return previous_node
 
         '''
-        Alternate approach:
+        This approach is same as the 1st approach but with different code:
         """
         The idea is very simple. We need to take one node at a time like it's a new linked list. Then we keep on pointing
         the upcoming nodes to the separated out nodes. This way our linked list will be reversed.
