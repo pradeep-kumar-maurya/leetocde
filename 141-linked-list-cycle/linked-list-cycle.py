@@ -9,7 +9,7 @@ class Solution:
         slow = head
         fast = head
 
-        # We will use Floyd's Tortoise and Hare
+        # Use Floyd's Tortoise and Hare
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
