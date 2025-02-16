@@ -9,12 +9,12 @@ class Solution:
         if root is None:
             return
 
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
         # The idea is to swap the nodes at the same level
         temp_root = root.left
         root.left = root.right
         root.right = temp_root
-
-        self.invertTree(root.left)
-        self.invertTree(root.right)
 
         return root
