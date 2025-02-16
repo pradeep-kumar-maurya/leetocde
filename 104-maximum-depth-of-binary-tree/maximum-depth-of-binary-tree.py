@@ -19,6 +19,7 @@ class Solution:
             if self.depth > self.max:
                 self.max = self.depth
 
+            # this is very important because once we finish a node we move up and therefore we reduce depth by 1
             self.depth -= 1
 
         check_max_depth(root)
