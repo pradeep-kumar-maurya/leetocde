@@ -23,3 +23,12 @@ class Solution:
 
         check_max_depth(root)
         return self.max
+
+        '''
+        OR
+        if root is None:
+            return 0
+    
+        # The idea is to just find the (max btw left tree and right tree + 1)   
+        return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
+        '''
