@@ -3,6 +3,7 @@ class Solution:
         # Intutive approach
         index = 0
 
+        # keep checking if A[index] == A[i]. If not incement index and set A[index] to A[i]
         for i in range(len(A)):
             if A[index] != A[i]:
                 index += 1
