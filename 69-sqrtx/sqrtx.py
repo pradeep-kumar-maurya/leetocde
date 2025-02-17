@@ -1,12 +1,10 @@
 class Solution:
     def mySqrt(self, x: int) -> int:
-        if x == 0:
-            return 0
-        if x == 1 or x == 2:
-            return 1
-        # Below for loop will only run for square root of n times
-        for i in range(2, x, 1):
-            if i * i == x:
+        # Keeping the upperbound of the for loop to max.
+        # It won't matter because we return from the loop ASAP .
+        for i in range(0, (2**31)-1, 1):
+            if i ** 2 == x:
                 return i
-            elif i * i > x:
+            elif i ** 2 > x:
                 return i - 1
+
